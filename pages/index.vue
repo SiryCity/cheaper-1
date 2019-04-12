@@ -1,65 +1,42 @@
-<template>
-  <section class="container">
-    <div>
-      <app-logo/>
-      <h1 class="title">
-        cheaper-1
-      </h1>
-      <h2 class="subtitle">
-        Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
-      </div>
-    </div>
-  </section>
+<template lang='pug'>
+  main#main
+    div.ad
+    section#calendar__wrapper
+      div#calendar
+    div.ad
 </template>
 
-<script>
-import AppLogo from '~/components/AppLogo.vue'
 
-export default {
-  components: {
-    AppLogo
-  }
-}
-</script>
+<style lang='stylus' scoped>
 
-<style>
-.container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+#main //ヘッダーとフッター以外の全て
+  width 1920px
+  max-width 95%
+  display flex
+  flex-direction column
+  align-items center
 
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
+  #calendar__wrapper //カレンダーの部分のラッパー
+    width 100%
+    height calc(var(--static100vh) - 80px - 80px - 80px) //1画面分からヘッダーと広告を抜く
+    min-height 400px
+    display flex
+    flex-direction column
+    align-items center
+    justify-content flex-end
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
+    #calendar //カレンダーの部分
+      width var(--calendar-length)
+      height var(--calendar-length)
+      display flex
+      flex-wrap wrap
+      justify-content flex-start
+      align-content center
 
-.links {
-  padding-top: 15px;
-}
+.ad
+  width 320px
+  height 80px
+
+
 </style>
 
