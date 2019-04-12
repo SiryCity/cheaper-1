@@ -1,15 +1,19 @@
 <template lang='pug'>
   div#root
+    header-bar
     nuxt
-    footer#footer &copy; 2019 安い方は
+    footer#footer &copy; 2019 title
 </template>
 
 <script>
+import HeaderBar from '~/components/HeaderBar.vue'
 export default {
   components: {
+    HeaderBar,
   },
   mounted(){
     this.$store.commit('main/setStatic100vh')
+    this.$store.commit('main/resizeContentsLengths')
   }
 }
 </script>
@@ -37,6 +41,11 @@ body
 
 :root
   --static100vh 100vh
+  
+  --keyboard-area-width 0
+  --keyboard-area-height 0
+  --illusts-area-width 0
+  --illusts-area-height 0
 
 #root
   width 100%

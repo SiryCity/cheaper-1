@@ -1,41 +1,39 @@
 <template lang='pug'>
   main#main
-    div.ad
-    section#calendar__wrapper
-      div#calendar
+    div#illusts-area
+    div#keyboard-area
     div.ad
 </template>
 
 
 <style lang='stylus' scoped>
 
-#main //ヘッダーとフッター以外の全て
-  width 1920px
-  max-width 95%
+#main
+  width 95%
+  max-width 540px
+  height calc(var(--static100vh) - 80px)
   display flex
   flex-direction column
+  justify-content flex-end
   align-items center
 
-  #calendar__wrapper //カレンダーの部分のラッパー
-    width 100%
-    height calc(var(--static100vh) - 80px - 80px - 80px) //1画面分からヘッダーと広告を抜く
-    min-height 400px
-    display flex
-    flex-direction column
-    align-items center
-    justify-content flex-end
-
-    #calendar //カレンダーの部分
-      width var(--calendar-length)
-      height var(--calendar-length)
-      display flex
-      flex-wrap wrap
-      justify-content flex-start
-      align-content center
+  #illusts-area
+    width var(--illusts-area-width)
+    max-width 100%
+    height var(--illusts-area-height)
+    margin-bottom 10px
+    background-color blue
+  #keyboard-area
+    width var(--keyboard-area-width)
+    max-width 100%
+    height var(--keyboard-area-height)
+    margin-bottom 10px
+    background-color cyan
 
 .ad
   width 320px
   height 80px
+  background-color orange
 
 
 </style>
