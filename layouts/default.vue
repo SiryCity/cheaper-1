@@ -12,8 +12,8 @@ export default {
     HeaderBar,
   },
   mounted(){
-    this.$store.commit('main/setStatic100vh')
-    this.$store.commit('main/resizeContentsLengths')
+    this.$store.commit('mounted/setStatic100vh')
+    this.$store.commit('mounted/resizeContentsLengths')
   }
 }
 </script>

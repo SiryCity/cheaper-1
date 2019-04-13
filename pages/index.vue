@@ -32,7 +32,7 @@ export default {
   .ad
     width 320px
     height 80px
-    background-color yellow
+    //background-color yellow
 
   .split
     width 100vw

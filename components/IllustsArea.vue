@@ -1,11 +1,21 @@
 <template lang="pug">
   div#illusts-area
     div.illusts-area__results
-      p 判定
+      p {{$store.getters['main/results'].left}}
     div.illusts-area__results
-      p 判定
+      p {{$store.getters['main/results'].right}}
+    
     div.illusts-area__quantity
+      img(src='~/assets/bottle.svg' alt='')
+      p
+        | {{$store.state.main.leftQuantity}}
+        span g
     div.illusts-area__quantity
+      img(src='~/assets/bottle.svg' alt='')
+      p
+        | {{$store.state.main.rightQuantity}}
+        span g
+
     div.illusts-area__price
       div.illusts-area__price__tag
         p
@@ -34,7 +44,6 @@
     display flex
     justify-content center
     align-items center
-
     p
       font-weight bold
       font-size 20px
@@ -42,8 +51,30 @@
   .illusts-area__quantity
     width calc(50% - 5px)
     height calc(70% - 5px)
-    background-color orange
-  
+    position relative
+    img
+      width auto
+      height 100%
+      position absolute
+      left 0
+      right 0
+      bottom 0
+      margin auto
+      transition-duration .2s
+      transition-property height
+    p
+      position absolute
+      left 0
+      right 0
+      bottom 50%
+      margin auto
+      color #ddd
+      font-size 20px
+      transition-duration .2s
+      transition-property bottom
+      span
+        font-size 90%
+      
   .illusts-area__price
     width calc(50% - 5px)
     height calc(15% - 5px)
@@ -61,4 +92,6 @@
       p
         color #ddd
         font-size 20px
+        span
+          font-size 90%
 </style>
