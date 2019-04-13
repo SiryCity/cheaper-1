@@ -1,9 +1,20 @@
 <template lang='pug'>
   main#main
-    div#illusts-area
-    div#keyboard-area
     div.ad
+    illusts-area
+    keyboard-area
 </template>
+
+<script>
+import IllustsArea from '~/components/IllustsArea.vue'
+import KeyboardArea from '~/components/KeyboardArea.vue'
+export default {
+  components: {
+    IllustsArea,
+    KeyboardArea
+  }
+}
+</script>
 
 
 <style lang='stylus' scoped>
@@ -14,21 +25,8 @@
   height calc(var(--static100vh) - 80px)
   display flex
   flex-direction column
-  justify-content flex-end
+  justify-content space-around
   align-items center
-
-  #illusts-area
-    width var(--illusts-area-width)
-    max-width 100%
-    height var(--illusts-area-height)
-    margin-bottom 10px
-    background-color blue
-  #keyboard-area
-    width var(--keyboard-area-width)
-    max-width 100%
-    height var(--keyboard-area-height)
-    margin-bottom 10px
-    background-color cyan
 
 .ad
   width 320px
