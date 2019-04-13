@@ -2,6 +2,7 @@
   main#main
     div.ad
     illusts-area
+    div.split
     keyboard-area
 </template>
 
@@ -25,14 +26,17 @@ export default {
   height calc(var(--static100vh) - 80px)
   display flex
   flex-direction column
-  justify-content space-around
+  justify-content space-evenly
   align-items center
 
-.ad
-  width 320px
-  height 80px
-  background-color orange
+  .ad
+    width 320px
+    height 80px
+    background-color yellow
 
-
+  .split
+    width 100vw
+    height 5px
+    box-shadow 0px -5px 5px rgba(51, 51, 51, .5)
 </style>
 

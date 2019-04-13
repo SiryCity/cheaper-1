@@ -6,13 +6,16 @@
       p 判定
     div.illusts-area__quantity
     div.illusts-area__quantity
-    div.hr
     div.illusts-area__price
       div.illusts-area__price__tag
-        p 111
+        p
+          span ￥
+          | {{$store.state.main.leftPrice}}
     div.illusts-area__price
       div.illusts-area__price__tag
-        p 111
+        p
+          span ￥
+          | {{$store.state.main.rightPrice}}
 </template>
 
 <style lang='stylus' scoped>
@@ -27,7 +30,7 @@
 
   .illusts-area__results
     width calc(50% - 5px)
-    height 15%
+    height calc(15% - 5px)
     display flex
     justify-content center
     align-items center
@@ -38,19 +41,12 @@
     
   .illusts-area__quantity
     width calc(50% - 5px)
-    height 70%
+    height calc(70% - 5px)
     background-color orange
   
-  .hr
-    width 100%
-    height 5%
-    margin 0
-    padding 0
-    border-bottom 3px solid #333
-
   .illusts-area__price
     width calc(50% - 5px)
-    height 15%
+    height calc(15% - 5px)
     display flex
     justify-content center
 

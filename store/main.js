@@ -61,19 +61,6 @@ export const mutations = {
     setCSS('--illusts-area-width', illustsAreaWidth)
     setCSS('--illusts-area-height', illustsAreaHeight)
 
-/*
-    document.documentElement.style.setProperty(
-      '--contents-height',
-      `${Math.min(
-        /iPhone|iPod|iPad|Android/i.test(navigator.userAgent)
-          ? window.outerHeight - HEADER_HEIGHT - AD_HEIGHT
-          : 1920,
-          window.outerWidth * 0.95,
-          600,
-      )}px`
-    )
-    */
-
   }
 
 }
