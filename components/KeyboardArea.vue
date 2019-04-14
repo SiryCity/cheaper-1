@@ -1,15 +1,15 @@
 <template lang="pug">
   div#keyboards-area
-    switch-button(i='leftQuantity')
-    switch-button(i='leftPrice')
+    switch-button(area='leftQuantity')
+    switch-button(area='leftPrice')
     div#keyboards-area__tenkey
       key-button(
         v-for='(v, i) in Array(11).fill()'
         :key='`tenkey-${i}`'
         :i='i'
       )
-    switch-button(i='rightQuantity')
-    switch-button(i='rightPrice')
+    switch-button(area='rightQuantity')
+    switch-button(area='rightPrice')
 </template>
 
 <script>

@@ -56,7 +56,24 @@ export const getters = {
 }
 
 export const mutations = {
-  switchArea(name){
-    state.chosenArea = name
+  switchArea(state, area){
+    state.chosenArea = area
+  },
+
+  inputNum(state, n){
+
+    if(n === 10 + 1){
+      state[state.chosenArea] = 0
+      return
+    }
+
+    if(n === 10){
+      n = 0
+    }
+    
+    if(state[state.chosenArea] >= 1000) return
+
+    state[state.chosenArea] = state[state.chosenArea] * 10 + n
   }
+
 }

@@ -10,6 +10,7 @@
         src='~/assets/bottle.svg'
         alt=''
         :style='{"height": `${$store.getters["main/quantityRatio"].left}%`}'
+        @click='$store.commit("main/switchArea", "leftQuantity")'
       )
       p.illusts-area__quantity__left
         | {{$store.state.main.leftQuantity}}
@@ -19,16 +20,17 @@
         src='~/assets/bottle.svg'
         alt=''
         :style='{"height": `${$store.getters["main/quantityRatio"].right}%`}'
+        @click='$store.commit("main/switchArea", "rightQuantity")'
       )
       p.illusts-area__quantity__right
         | {{$store.state.main.rightQuantity}}
         span g
 
-    div.illusts-area__price
+    div.illusts-area__price(@click='$store.commit("main/switchArea", "leftPrice")')
       p.illusts-area__price__left
         span ￥
         | {{$store.state.main.leftPrice}}
-    div.illusts-area__price
+    div.illusts-area__price(@click='$store.commit("main/switchArea", "rightPrice")')
       p.illusts-area__price__right
         span ￥
         | {{$store.state.main.rightPrice}}
@@ -65,6 +67,7 @@
       width auto
       transition-duration .2s
       transition-property height
+      cursor pointer
     p
       position absolute
       left 0
@@ -89,6 +92,7 @@
     align-items center
     background-color #333
     border-radius 2px
+    cursor pointer
 
     p
       color #ddd
