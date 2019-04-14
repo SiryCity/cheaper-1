@@ -3,8 +3,8 @@ export const state = () =>
   ({
       leftQuantity: 100,
       leftPrice: 100,
-      rightQuantity: 130,
-      rightPrice: 100,
+      rightQuantity: 160,
+      rightPrice: 110,
 
       chosenArea: 'leftQuantity',
   })
@@ -47,8 +47,8 @@ export const getters = {
 
       // 0.3以下にならないように かつ小数点以下切り捨て
       const adjustedRatio = {
-        left: Math.max(~~ratio.left , 30),
-        right: Math.max(~~ratio.right , 30),
+        left: Math.max(~~ratio.left * 100, 90),
+        right: Math.max(~~ratio.right * 100, 90),
       }
 
       return adjustedRatio

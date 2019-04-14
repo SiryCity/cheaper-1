@@ -6,26 +6,32 @@
       p {{$store.getters['main/results'].right}}
     
     div.illusts-area__quantity
-      img(src='~/assets/bottle.svg' alt='')
-      p
+      img(
+        src='~/assets/bottle.svg'
+        alt=''
+        :style='{"height": `${$store.getters["main/quantityRatio"].left}%`}'
+      )
+      p.illusts-area__quantity__left
         | {{$store.state.main.leftQuantity}}
         span g
     div.illusts-area__quantity
-      img(src='~/assets/bottle.svg' alt='')
-      p
+      img(
+        src='~/assets/bottle.svg'
+        alt=''
+        :style='{"height": `${$store.getters["main/quantityRatio"].right}%`}'
+      )
+      p.illusts-area__quantity__right
         | {{$store.state.main.rightQuantity}}
         span g
 
     div.illusts-area__price
-      div.illusts-area__price__tag
-        p
-          span ￥
-          | {{$store.state.main.leftPrice}}
+      p.illusts-area__price__left
+        span ￥
+        | {{$store.state.main.leftPrice}}
     div.illusts-area__price
-      div.illusts-area__price__tag
-        p
-          span ￥
-          | {{$store.state.main.rightPrice}}
+      p.illusts-area__price__right
+        span ￥
+        | {{$store.state.main.rightPrice}}
 </template>
 
 <style lang='stylus' scoped>
@@ -35,7 +41,7 @@
   height var(--illusts-area-height)
   display flex
   flex-wrap wrap
-  justify-content space-between
+  justify-content space-around
   align-content space-evenly
 
   .illusts-area__results
@@ -54,7 +60,6 @@
     position relative
     img
       width auto
-      height 100%
       position absolute
       left 0
       right 0
@@ -66,32 +71,34 @@
       position absolute
       left 0
       right 0
-      bottom 50%
+      bottom 30%
       margin auto
       color #ddd
       font-size 20px
-      transition-duration .2s
-      transition-property bottom
       span
-        font-size 90%
+        font-size 80%
+
+    .illusts-area__quantity__left
+      color #f2a9cd
+    .illusts-area__quantity__right
+      color #c7dd6c
       
   .illusts-area__price
-    width calc(50% - 5px)
+    width calc(35% - 5px)
     height calc(15% - 5px)
     display flex
-    justify-content center
+    justify-content space-around
+    align-items center
+    background-color #333
 
-    .illusts-area__price__tag
-      width 80%
-      height 80%
-      background-color #333
-      display flex
-      justify-content center
-      align-items center
+    p
+      color #ddd
+      font-size 20px
+      span
+        font-size 80%
 
-      p
-        color #ddd
-        font-size 20px
-        span
-          font-size 90%
+    .illusts-area__price__left
+      color #d34a6a
+    .illusts-area__price__right
+      color #7dc14f
 </style>
