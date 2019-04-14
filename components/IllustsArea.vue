@@ -36,17 +36,17 @@
 
 <style lang='stylus' scoped>
 #illusts-area
-  width var(--illusts-area-width)
-  max-width 100%
-  height var(--illusts-area-height)
+  width 100%
+  max-width 540px
+  height calc(100% - 250px - 80px - 5px)
   display flex
   flex-wrap wrap
   justify-content space-around
   align-content space-evenly
 
   .illusts-area__results
-    width calc(50% - 5px)
-    height calc(15% - 5px)
+    width 35%
+    height 15%
     display flex
     justify-content center
     align-items center
@@ -55,23 +55,21 @@
       font-size 20px
     
   .illusts-area__quantity
-    width calc(50% - 5px)
-    height calc(70% - 5px)
+    width 35%
+    height 60%
     position relative
+    display flex
+    justify-content center
+    align-items flex-end
     img
       width auto
-      position absolute
-      left 0
-      right 0
-      bottom 0
-      margin auto
       transition-duration .2s
       transition-property height
     p
       position absolute
       left 0
       right 0
-      bottom 30%
+      bottom 20%
       margin auto
       color #ddd
       font-size 20px
@@ -79,17 +77,18 @@
         font-size 80%
 
     .illusts-area__quantity__left
-      color #f2a9cd
+      color var(--color-quantity-left)
     .illusts-area__quantity__right
-      color #c7dd6c
+      color var(--color-quantity-right)
       
   .illusts-area__price
-    width calc(35% - 5px)
-    height calc(15% - 5px)
+    width 35%
+    height 13%
     display flex
     justify-content space-around
     align-items center
     background-color #333
+    border-radius 2px
 
     p
       color #ddd
@@ -98,7 +97,7 @@
         font-size 80%
 
     .illusts-area__price__left
-      color #d34a6a
+      color var(--color-price-left)
     .illusts-area__price__right
-      color #7dc14f
+      color var(--color-price-right)
 </style>

@@ -5,9 +5,9 @@
 
 <style lang='stylus' scoped>
 #keyboards-area
-  width var(--keyboard-area-width)
+  width 250px
   max-width 100%
-  height var(--keyboard-area-height)
+  height 200px
   background-color blue
 
 </style>

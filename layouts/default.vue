@@ -13,7 +13,6 @@ export default {
   },
   mounted(){
     this.$store.commit('mounted/setStatic100vh')
-    this.$store.commit('mounted/resizeContentsLengths')
   }
 }
 </script>
@@ -41,11 +40,10 @@ body
 
 :root
   --static100vh 100vh
-  
-  --keyboard-area-width 0
-  --keyboard-area-height 0
-  --illusts-area-width 0
-  --illusts-area-height 0
+  --color-quantity-left #f2a9cd
+  --color-quantity-right #c7dd6c
+  --color-price-left #d34a6a
+  --color-price-right #7dc14f
 
 #root
   width 100%
