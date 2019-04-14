@@ -1,6 +1,6 @@
 <template lang="pug">
   div.key-button
-    div {{i}}
+    div img
     
 </template>
 
@@ -12,8 +12,8 @@ export default {
 
 <style lang="stylus" scoped>
 .key-button
-  width calc(100% / 3 - 4px)
-  height calc(100% / 4 - 4px)
+  width calc(100% / 5 - 4px)
+  height calc(100% / 2 - 4px)
   margin 2px
   display flex
   justify-content center

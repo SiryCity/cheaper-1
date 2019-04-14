@@ -1,13 +1,40 @@
 <template lang="pug">
   div#keyboards-area
-    
+    switch-button(i='leftQuantity')
+    switch-button(i='leftPrice')
+    div#keyboards-area__tenkey
+      key-button(
+        v-for='(v, i) in Array(11).fill()'
+        :key='`tenkey-${i}`'
+        :i='i'
+      )
+    switch-button(i='rightQuantity')
+    switch-button(i='rightPrice')
 </template>
+
+<script>
+import KeyButton from '~/components/KeyButton.vue'
+import SwitchButton from '~/components/SwitchButton.vue'
+export default {
+  components: {
+    KeyButton,
+    SwitchButton
+  },
+}
+</script>
 
 <style lang='stylus' scoped>
 #keyboards-area
   width 250px
   max-width 100%
   height 200px
-  background-color blue
-
+  display flex
+  flex-wrap wrap
+  flex-direction column
+  #keyboards-area__tenkey
+    width 60%
+    height 100%
+    display flex
+    flex-wrap wrap
+    justify-content flex-end
 </style>
