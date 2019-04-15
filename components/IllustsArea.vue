@@ -13,7 +13,7 @@
         @click='$store.commit("main/switchArea", "leftQuantity")'
       )
       p.illusts-area__quantity__left
-        | {{$store.state.main.leftQuantity}}
+        span {{$store.state.main.leftQuantity}}
         span g
     div.illusts-area__quantity
       img(
@@ -23,17 +23,17 @@
         @click='$store.commit("main/switchArea", "rightQuantity")'
       )
       p.illusts-area__quantity__right
-        | {{$store.state.main.rightQuantity}}
+        span {{$store.state.main.rightQuantity}}
         span g
 
     div.illusts-area__price(@click='$store.commit("main/switchArea", "leftPrice")')
       p.illusts-area__price__left
         span ￥
-        | {{$store.state.main.leftPrice}}
+        span {{$store.state.main.leftPrice}}
     div.illusts-area__price(@click='$store.commit("main/switchArea", "rightPrice")')
       p.illusts-area__price__right
         span ￥
-        | {{$store.state.main.rightPrice}}
+        span {{$store.state.main.rightPrice}}
 </template>
 
 <style lang='stylus' scoped>
@@ -77,7 +77,8 @@
       color #ddd
       font-size 20px
       span
-        font-size 80%
+        &:nth-child(2)
+          font-size 80%
 
     .illusts-area__quantity__left
       color var(--color-quantity-left)
@@ -98,7 +99,8 @@
       color #ddd
       font-size 20px
       span
-        font-size 80%
+        &:nth-child(1)
+          font-size 80%
 
     .illusts-area__price__left
       color var(--color-price-left)

@@ -7,6 +7,8 @@ export const state = () =>
       rightPrice: 110,
 
       chosenArea: 'leftQuantity',
+
+      selectAll: true
   })
 
 export const getters = {
