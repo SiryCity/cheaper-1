@@ -16,6 +16,9 @@ export const getters = {
     isSP: () =>
       /iPhone|iPod|iPad|Android/i.test(navigator.userAgent),
 
+    getKeyboard: () =>
+      [1, 2, 3, 4, 5, 6, 7, 8, 9, 'Tab', 0, 'C'],
+
     results(state){
       const TAX = 8
 
@@ -57,6 +60,8 @@ export const getters = {
     }
 }
 
+
+
 export const mutations = {
   switchArea(state, area){
     state.chosenArea = area
@@ -64,13 +69,13 @@ export const mutations = {
 
   inputNum(state, n){
 
-    if(n === 10 + 1){
+    if(n === 'C'){
       state[state.chosenArea] = 0
       return
     }
 
-    if(n === 10){
-      n = 0
+    if(n === 'Tab'){
+      return
     }
     
     if(state[state.chosenArea] >= 1000) return

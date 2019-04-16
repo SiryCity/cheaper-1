@@ -1,10 +1,12 @@
 <template lang="pug">
   div#illusts-area
+    //- 結果(高いか安いか)を表示
     div.illusts-area__results
       p {{$store.getters['main/results'].left}}
     div.illusts-area__results
       p {{$store.getters['main/results'].right}}
     
+    //- 量をシャンプーのボトルで表示
     div.illusts-area__quantity
       img(
         src='~/assets/bottle.svg'
@@ -13,7 +15,9 @@
         @click='$store.commit("main/switchArea", "leftQuantity")'
       )
       p.illusts-area__quantity__left
-        span {{$store.state.main.leftQuantity}}
+        span(:class=`{
+          "blinking": $store.state.main.chosenArea === "leftQuantity"
+        }`) {{$store.state.main.leftQuantity}}
         span g
     div.illusts-area__quantity
       img(
@@ -23,17 +27,25 @@
         @click='$store.commit("main/switchArea", "rightQuantity")'
       )
       p.illusts-area__quantity__right
-        span {{$store.state.main.rightQuantity}}
+        span(:class=`{
+          "blinking": $store.state.main.chosenArea === "rightQuantity"
+        }`) {{$store.state.main.rightQuantity}}
         span g
 
+    //- 値段を看板で表示
     div.illusts-area__price(@click='$store.commit("main/switchArea", "leftPrice")')
       p.illusts-area__price__left
         span ￥
-        span {{$store.state.main.leftPrice}}
+        span(:class=`{
+          "blinking": $store.state.main.chosenArea === "leftPrice"
+        }`) {{$store.state.main.leftPrice}}
+    
     div.illusts-area__price(@click='$store.commit("main/switchArea", "rightPrice")')
       p.illusts-area__price__right
         span ￥
-        span {{$store.state.main.rightPrice}}
+        span(:class=`{
+          "blinking": $store.state.main.chosenArea === "rightPrice"
+          }`) {{$store.state.main.rightPrice}}
 </template>
 
 <style lang='stylus' scoped>
@@ -106,4 +118,13 @@
       color var(--color-price-left)
     .illusts-area__price__right
       color var(--color-price-right)
+
+.blinking
+  animation blink .5s linear infinite alternate
+
+@keyframes blink
+  0%
+    background-color unset
+  100%
+    background-color #ddd
 </style>
