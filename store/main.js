@@ -22,8 +22,8 @@ export const getters = {
     results(state){
       const TAX = 8
 
-      const leftPriceIncludingTax = state.leftPrice / 100 * (100 + TAX)
-      const rightPriceIncludingTax = state.rightPrice / 100 * (100 + TAX)
+      const leftPriceIncludingTax = ~~(state.leftPrice / 100 * (100 + TAX))
+      const rightPriceIncludingTax = ~~(state.rightPrice / 100 * (100 + TAX))
 
       const leftPricePerQuantity = leftPriceIncludingTax / state.leftQuantity || 0
       const rightPricePerQuantity = rightPriceIncludingTax / state.rightQuantity || 0
@@ -38,33 +38,13 @@ export const getters = {
         return {left: 'おなじ', right: 'おなじ'}
 
     },
-
-    quantityRatio(state){
-      const largerQuantity = Math.max(
-        state.leftQuantity,
-        state.rightQuantity
-      )
-
-      const ratio = {
-        left: state.leftQuantity / largerQuantity,
-        right: state.rightQuantity / largerQuantity
-      }
-
-      // 0.3以下にならないように かつ小数点以下切り捨て
-      const adjustedRatio = {
-        left: Math.max(~~ratio.left * 100, 90),
-        right: Math.max(~~ratio.right * 100, 90),
-      }
-
-      return adjustedRatio
-    }
 }
 
 
+const orderOfAreas = ['leftQuantity', 'rightQuantity', 'leftPrice', 'rightPrice']
 
 export const mutations = {
   switchArea(state, area){
-    const orderOfAreas = ['leftQuantity', 'rightQuantity', 'leftPrice', 'rightPrice']
     state.chosenArea = area
     if(state[orderOfAreas[(orderOfAreas.indexOf(state.chosenArea))]]){
       state.isSelectedAll = true
@@ -87,7 +67,6 @@ export const mutations = {
     }
 
     if(n === 'Tab'){
-      const orderOfAreas = ['leftQuantity', 'rightQuantity', 'leftPrice', 'rightPrice']
       state.chosenArea = orderOfAreas[(orderOfAreas.indexOf(state.chosenArea) + 1) % orderOfAreas.length]
       if(state[orderOfAreas[(orderOfAreas.indexOf(state.chosenArea))]]){
         state.isSelectedAll = true
@@ -98,7 +77,6 @@ export const mutations = {
     }
     
     if(!state.isSelectedAll && state[state.chosenArea] >= 1000){
-      const orderOfAreas = ['leftQuantity', 'rightQuantity', 'leftPrice', 'rightPrice']
       state.chosenArea = orderOfAreas[(orderOfAreas.indexOf(state.chosenArea) + 1) % orderOfAreas.length]
       if(state[orderOfAreas[(orderOfAreas.indexOf(state.chosenArea))]]){
         state.isSelectedAll = true
