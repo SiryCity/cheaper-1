@@ -10,42 +10,50 @@
     div.illusts-area__quantity
       img(
         src='~/assets/bottle.svg'
-        alt=''
-        :style='{"height": `${$store.getters["main/quantityRatio"].left}%`}'
         @click='$store.commit("main/switchArea", "leftQuantity")'
       )
-      p.illusts-area__quantity__left
+      p
         span(:class=`{
-          "blinking": $store.state.main.chosenArea === "leftQuantity"
+          "selected": $store.state.main.chosenArea === "leftQuantity"
+          && !$store.state.main.isSelectedAll,
+          "selected-all": $store.state.main.chosenArea === "leftQuantity"
+          && $store.state.main.isSelectedAll
         }`) {{$store.state.main.leftQuantity}}
         span g
     div.illusts-area__quantity
       img(
         src='~/assets/bottle.svg'
-        alt=''
-        :style='{"height": `${$store.getters["main/quantityRatio"].right}%`}'
         @click='$store.commit("main/switchArea", "rightQuantity")'
       )
-      p.illusts-area__quantity__right
+      p
         span(:class=`{
-          "blinking": $store.state.main.chosenArea === "rightQuantity"
+          "selected": $store.state.main.chosenArea === "rightQuantity"
+          && !$store.state.main.isSelectedAll,
+          "selected-all": $store.state.main.chosenArea === "rightQuantity"
+          && $store.state.main.isSelectedAll
         }`) {{$store.state.main.rightQuantity}}
         span g
 
     //- 値段を看板で表示
     div.illusts-area__price(@click='$store.commit("main/switchArea", "leftPrice")')
-      p.illusts-area__price__left
+      p
         span ￥
         span(:class=`{
-          "blinking": $store.state.main.chosenArea === "leftPrice"
+          "selected": $store.state.main.chosenArea === "leftPrice"
+          && !$store.state.main.isSelectedAll,
+          "selected-all": $store.state.main.chosenArea === "leftPrice"
+          && $store.state.main.isSelectedAll
         }`) {{$store.state.main.leftPrice}}
     
     div.illusts-area__price(@click='$store.commit("main/switchArea", "rightPrice")')
-      p.illusts-area__price__right
+      p
         span ￥
         span(:class=`{
-          "blinking": $store.state.main.chosenArea === "rightPrice"
-          }`) {{$store.state.main.rightPrice}}
+          "selected": $store.state.main.chosenArea === "rightPrice"
+          && !$store.state.main.isSelectedAll,
+          "selected-all": $store.state.main.chosenArea === "rightPrice"
+          && $store.state.main.isSelectedAll
+        }`) {{$store.state.main.rightPrice}}
 </template>
 
 <style lang='stylus' scoped>
@@ -77,8 +85,7 @@
     align-items flex-end
     img
       width auto
-      transition-duration .2s
-      transition-property height
+      height 100%
       cursor pointer
     p
       position absolute
@@ -88,14 +95,12 @@
       margin auto
       color #ddd
       font-size 20px
+      pointer-events none
       span
+        &:nth-child(1)
+          border-right transparent 3px solid
         &:nth-child(2)
           font-size 80%
-
-    .illusts-area__quantity__left
-      color var(--color-quantity-left)
-    .illusts-area__quantity__right
-      color var(--color-quantity-right)
       
   .illusts-area__price
     width 35%
@@ -110,21 +115,28 @@
     p
       color #ddd
       font-size 20px
+      pointer-events none
       span
         &:nth-child(1)
           font-size 80%
+        &:nth-child(2)
+          border-right transparent 3px solid
 
-    .illusts-area__price__left
-      color var(--color-price-left)
-    .illusts-area__price__right
-      color var(--color-price-right)
+.selected-all
+  animation blink-all .4s linear infinite alternate
 
-.blinking
-  animation blink .5s linear infinite alternate
-
-@keyframes blink
+@keyframes blink-all
   0%
     background-color unset
   100%
-    background-color #ddd
+    background-color #f442c8
+
+.selected
+  animation blink-right .4s linear infinite alternate
+
+@keyframes blink-right
+  0%
+    border-right transparent 3px solid
+  100%
+    border-right #f442c8 3px solid
 </style>

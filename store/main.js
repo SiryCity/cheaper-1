@@ -8,7 +8,7 @@ export const state = () =>
 
       chosenArea: 'leftQuantity',
 
-      selectAll: true
+      isSelectedAll: true
   })
 
 export const getters = {
@@ -25,8 +25,8 @@ export const getters = {
       const leftPriceIncludingTax = state.leftPrice / 100 * (100 + TAX)
       const rightPriceIncludingTax = state.rightPrice / 100 * (100 + TAX)
 
-      const leftPricePerQuantity = leftPriceIncludingTax / state.leftQuantity
-      const rightPricePerQuantity = rightPriceIncludingTax / state.rightQuantity
+      const leftPricePerQuantity = leftPriceIncludingTax / state.leftQuantity || 0
+      const rightPricePerQuantity = rightPriceIncludingTax / state.rightQuantity || 0
 
       if(leftPricePerQuantity < rightPricePerQuantity)
         return {left: 'やすい', right: 'たかい'}
@@ -64,23 +64,57 @@ export const getters = {
 
 export const mutations = {
   switchArea(state, area){
+    const orderOfAreas = ['leftQuantity', 'rightQuantity', 'leftPrice', 'rightPrice']
     state.chosenArea = area
+    if(state[orderOfAreas[(orderOfAreas.indexOf(state.chosenArea))]]){
+      state.isSelectedAll = true
+    } else {
+      state.isSelectedAll = false
+    }
   },
+
 
   inputNum(state, n){
 
     if(n === 'C'){
-      state[state.chosenArea] = 0
+      if(state.isSelectedAll){
+        state[state.chosenArea] = 0
+        state.isSelectedAll = false
+      } else {
+        state[state.chosenArea] = ~~(state[state.chosenArea] / 10)
+      }
       return
     }
 
     if(n === 'Tab'){
+      const orderOfAreas = ['leftQuantity', 'rightQuantity', 'leftPrice', 'rightPrice']
+      state.chosenArea = orderOfAreas[(orderOfAreas.indexOf(state.chosenArea) + 1) % orderOfAreas.length]
+      if(state[orderOfAreas[(orderOfAreas.indexOf(state.chosenArea))]]){
+        state.isSelectedAll = true
+      } else {
+        state.isSelectedAll = false
+      }
       return
     }
     
-    if(state[state.chosenArea] >= 1000) return
+    if(!state.isSelectedAll && state[state.chosenArea] >= 1000){
+      const orderOfAreas = ['leftQuantity', 'rightQuantity', 'leftPrice', 'rightPrice']
+      state.chosenArea = orderOfAreas[(orderOfAreas.indexOf(state.chosenArea) + 1) % orderOfAreas.length]
+      if(state[orderOfAreas[(orderOfAreas.indexOf(state.chosenArea))]]){
+        state.isSelectedAll = true
+      } else {
+        state.isSelectedAll = false
+      }
+      return
+    }
 
-    state[state.chosenArea] = state[state.chosenArea] * 10 + n
+
+    if(state.isSelectedAll){
+      state[state.chosenArea] = n
+      state.isSelectedAll = false
+    } else {
+      state[state.chosenArea] = state[state.chosenArea] * 10 + n
+    }
   }
 
 }

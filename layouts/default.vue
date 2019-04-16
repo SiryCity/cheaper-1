@@ -40,10 +40,6 @@ body
 
 :root
   --static100vh 100vh
-  --color-quantity-left #f2a9cd
-  --color-quantity-right #c7dd6c
-  --color-price-left #d34a6a
-  --color-price-right #7dc14f
 
 #root
   width 100%
