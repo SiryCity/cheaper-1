@@ -41,7 +41,7 @@ export const getters = {
 }
 
 
-const orderOfAreas = ['leftQuantity', 'rightQuantity', 'leftPrice', 'rightPrice']
+const orderOfAreas = ['leftQuantity', 'leftPrice', 'rightQuantity', 'rightPrice']
 
 export const mutations = {
   switchArea(state, area){
