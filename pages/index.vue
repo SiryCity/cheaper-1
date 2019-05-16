@@ -23,7 +23,7 @@ export default {
 #main
   width 95%
   max-width 540px
-  height calc(var(--static100vh) - 80px)
+  height calc(var(--static100vh) - 120px)
   display flex
   flex-direction column
   justify-content space-evenly

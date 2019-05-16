@@ -1,13 +1,22 @@
 <template lang="pug">
   header#header
-    nuxt-link.header__nav(to='') aaaa
-    nuxt-link.header__nav(to='') aaaa
-    nuxt-link.header__nav(to='') aaaa
-    nuxt-link.header__nav(to='') aaaa
-
     div.header__h1
       nuxt-link(to='')
         h1 どっちがおとく?
+    nav.header__nav__wrapper
+      nuxt-link.header__nav(to='#')
+        img(src='~/assets/usage.svg')
+        p 使い方
+      nuxt-link.header__nav(to='#')
+        img(src='~/assets/setting.svg')
+        p 設定
+      nuxt-link.header__nav(to='#')
+        img(src='~/assets/columns.svg')
+        p コラム
+      nuxt-link.header__nav(to='#')
+        img(src='~/assets/contact.svg')
+        p 問い合せ
+
 </template>
 
 
@@ -15,42 +24,51 @@
 
 #header
   width 100%
-  height 60px
+  height 100px
   color #ddd
   background-color #333
-  display flex
-  justify-content center
-  position relative
-  z-index 2
-  .header__nav
-    width calc(25% - 4px)
-    max-width 56px
-    height 56px
-    margin 2px
-    color #ccc
-    text-decoration none
+
   .header__h1
-    width 70%
-    margin 0 auto
-    height 30px
-    line-height 30px
-    border-radius 0 0 15px 15px/ 0 0 15px 15px
-    position absolute
-    left 0
-    right 0
-    top 60px
-    background-color #333
-    z-index 1
+    width 100%
+    height 40px
+    line-height 40px
+    border-bottom 3px #f442c8 solid
+    box-sizing border-box
     a
-      display block
+      margin 0 auto
       color #ddd
       text-decoration none
       h1
         font-size 18px
+        color #f442c8
         margin 0
         padding 0
         pointer-events none
         &:first-letter
-          color #f442c8
           font-size 24px
+
+  .header__nav__wrapper
+    width 100%
+    height 52px
+    border-bottom 3px  #f442c8 solid
+    display flex
+    justify-content center
+    .header__nav
+      width 25%
+      max-width 72px
+      height 46px
+
+      margin 2px
+      color #ccc
+      text-decoration none
+      
+    
+    img 
+      width auto
+      height 20px
+      margin 5px 0 -2px
+    p
+      margin 0
+      padding 0
+      font-size 12px
 </style>

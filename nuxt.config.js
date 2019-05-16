@@ -48,5 +48,11 @@ module.exports = {
     }
   },
   mode: 'universal',
+  modules: [
+    '@nuxtjs/markdownit',
+  ],
+  markdownit: {
+    injected: true,
+  },
 }
 
