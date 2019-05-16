@@ -2,7 +2,6 @@
   main#main
     div.ad
     illusts-area
-    //- div.split
     keyboard-area
 </template>
 

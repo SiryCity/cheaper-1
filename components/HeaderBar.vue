@@ -1,10 +1,10 @@
 <template lang="pug">
   header#header
     div.header__h1
-      nuxt-link(to='')
+      nuxt-link(to='/')
         h1 どっちがおとく?
     nav.header__nav__wrapper
-      nuxt-link.header__nav(to='#')
+      nuxt-link.header__nav(to='usage')
         img(src='~/assets/usage.svg')
         p 使い方
       nuxt-link.header__nav(to='#')
