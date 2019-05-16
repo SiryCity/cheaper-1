@@ -1,58 +1,56 @@
 <template lang="pug">
-  header#header__wrapper
-    div#header
+  header#header
+    nuxt-link.header__nav(to='') aaaa
+    nuxt-link.header__nav(to='') aaaa
+    nuxt-link.header__nav(to='') aaaa
+    nuxt-link.header__nav(to='') aaaa
 
+    div.header__h1
+      nuxt-link(to='')
+        h1 どっちがおとく?
 </template>
 
 
 <style lang="stylus" scoped>
 
-#header__wrapper
+#header
   width 100%
   height 60px
   color #ddd
   background-color #333
   display flex
   justify-content center
-  #header
-    width 100%
-    max-width 600px
-    display flex
-    justify-content space-between
-    #header__title
-      height 60px
-      display flex
-
-      justify-content flex-start
-      align-items center
-      margin-left 20px
-      color white
+  position relative
+  z-index 2
+  .header__nav
+    width calc(25% - 4px)
+    max-width 56px
+    height 56px
+    margin 2px
+    color #ccc
+    text-decoration none
+  .header__h1
+    width 70%
+    margin 0 auto
+    height 30px
+    line-height 30px
+    border-radius 0 0 15px 15px/ 0 0 15px 15px
+    position absolute
+    left 0
+    right 0
+    top 60px
+    background-color #333
+    z-index 1
+    a
+      display block
+      color #ddd
       text-decoration none
-      #title__h1
-        width 72px
-        height 46px
-        font-size 23px
-        line-height 100%
-        transition-duration .2s
-        transition-property color
-        &:hover
-          color teal
-    #header__nav
-      height 60px
-      display flex
-      justify-content center
-      align-items center
-      a
-        width 42px
-        height 42px
-        margin-top 8px
-        color white
-        font-size 20px
-        line-height 100%
-        text-decoration none
-        margin-right 16px
-        transition-duration .2s
-        transition-property color
-        &:hover
-          color teal
+      h1
+        font-size 18px
+        margin 0
+        padding 0
+        pointer-events none
+        &:first-letter
+          color #f442c8
+          font-size 24px
 </style>
