@@ -7,13 +7,13 @@
       nuxt-link.header__nav(to='usage')
         img(src='~/assets/usage.svg')
         p 使い方
-      nuxt-link.header__nav(to='#')
-        img(src='~/assets/setting.svg')
-        p 設定
-      nuxt-link.header__nav(to='#')
+      nuxt-link.header__nav(to='columns')
         img(src='~/assets/columns.svg')
         p コラム
-      nuxt-link.header__nav(to='#')
+      nuxt-link.header__nav(to='app')
+        img(src='~/assets/app.svg')
+        p アプリ
+      nuxt-link.header__nav(to='contact')
         img(src='~/assets/contact.svg')
         p 問い合せ
 
