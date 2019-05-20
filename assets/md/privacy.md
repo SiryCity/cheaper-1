@@ -15,3 +15,7 @@ Cookieを使用しています。
 、または
 [こちら](https://policies.google.com/technologies/partner-sites?hl=ja)
 をご覧ください。
+
+### 開発者の紹介
+
+[MIZUTANI Ryuto | 名古屋発Webエンジニア](https://rm-js.com)

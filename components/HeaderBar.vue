@@ -24,14 +24,14 @@
 
 #header
   width 100%
-  height 100px
+  height 120px
   color #ddd
   background-color #333
 
   .header__h1
     width 100%
-    height 40px
-    line-height 40px
+    height 60px
+    line-height 60px
     border-bottom 3px #f442c8 solid
     box-sizing border-box
     a
@@ -55,7 +55,7 @@
     justify-content center
     .header__nav
       width 25%
-      max-width 72px
+      max-width calc(540px / 4 - 4px)
       height 46px
 
       margin 2px

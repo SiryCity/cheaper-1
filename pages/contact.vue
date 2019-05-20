@@ -27,7 +27,7 @@ export default {
 <style lang="stylus" scoped>
 .contact
   width 100%
-  height calc(var(--static100vh) - 120px)
+  height calc(var(--static100vh) - 140px)
   display flex
   justify-content center
   align-items center
@@ -36,7 +36,7 @@ export default {
     position absolute
     left 0
     right 0
-    top calc((var(--static100vh) - 120px) / 2)
+    top calc((var(--static100vh) - 140px) / 2)
     font-size 22px
     font-weight bold
   iframe
