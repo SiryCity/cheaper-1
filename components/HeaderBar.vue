@@ -2,14 +2,14 @@
   header#header
     div.header__h1
       nuxt-link(to='/')
-        h1 どっちがおとく?
+        h1 シャンプーくらべ
     nav.header__nav__wrapper
       nuxt-link.header__nav(to='usage')
         img(src='~/assets/usage.svg')
         p 使い方
-      nuxt-link.header__nav(to='columns')
-        img(src='~/assets/columns.svg')
-        p コラム
+      nuxt-link.header__nav(to='topics')
+        img(src='~/assets/topics.svg')
+        p トピック
       nuxt-link.header__nav(to='app')
         img(src='~/assets/app.svg')
         p アプリ

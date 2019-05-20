@@ -9,6 +9,11 @@
 import IllustsArea from '~/components/IllustsArea.vue'
 import KeyboardArea from '~/components/KeyboardArea.vue'
 export default {
+  head: () => 
+    ({
+      titleTemplate: null,
+      title: 'シャンプーくらべ',
+    }),
   components: {
     IllustsArea,
     KeyboardArea

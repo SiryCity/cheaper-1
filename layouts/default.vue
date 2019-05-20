@@ -2,7 +2,7 @@
   div#root
     header-bar
     nuxt
-    footer#footer &copy; 2019 title
+    footer#footer &copy; 2019 シャンプーくらべ
 </template>
 
 <script>

@@ -1,8 +1,8 @@
 <template lang="pug">
   div
     common-documents(
-      title='ミニコラム'
-      subTitle='アプリに関連するトピックなど'
+      title='トピック'
+      subTitle='アプリに関連する情報など'
       :image='favicon'
     )
     //-
@@ -17,7 +17,7 @@ import favicon from '~/assets/favicon.svg'
 export default {
   head: () => 
     ({
-      title: 'コラム',
+      title: 'トピック',
     }),
   components:{
     CommonDocuments

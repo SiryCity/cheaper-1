@@ -3,14 +3,14 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'cheaper-1',
+    titleTemplate: '%s | シャンプーくらべ',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'スーパーでよくある「どっちがお得？」を10秒で計算。' },
+      { hid: 'description', name: 'description', content: '薬局でよくある「どっちのシャンプーがお得？」を10秒で計算。' },
 
       //{ hid: 'og:title', property: 'og:title', content: '' },
-      { hid: 'og:description', property: 'og:description', content: 'スーパーでよくある「どっちがお得？」を10秒で計算。' },
+      { hid: 'og:description', property: 'og:description', content: '薬局でよくある「どっちのシャンプーがお得？」を10秒で計算。' },
       //{ hid: 'og:site_name', property: 'og:site_name', content: '' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       //{ hid: 'og:url', property: 'og:url', content: '' },
@@ -50,9 +50,15 @@ module.exports = {
   mode: 'universal',
   modules: [
     '@nuxtjs/markdownit',
+    '@nuxtjs/dotenv',
   ],
   markdownit: {
     injected: true,
+  },
+  env: {
+    FORMS_API: (process.env.NODE_ENV === 'development')
+    ? process.env.FORMS_API
+    : process.env.FORMS_API,
   },
 }
 

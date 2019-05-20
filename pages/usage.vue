@@ -1,8 +1,8 @@
 <template lang="pug">
   div
     common-documents(
-      title='どっちがおとく?'
-      subTitle='aaa'
+      title='シャンプーくらべ'
+      subTitle='使い方'
       :image='favicon'
       :md='usage'
     )

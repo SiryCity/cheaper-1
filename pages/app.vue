@@ -1,7 +1,7 @@
 <template lang="pug">
   div
     common-documents(
-      title='このアプリについて'
+      title='アプリについて'
       :image='favicon'
       :md='privacy'
     )
@@ -14,7 +14,7 @@ import favicon from '~/assets/favicon.svg'
 export default {
   head: () => 
     ({
-      title: 'プライバシーポリシー',
+      title: 'アプリについて',
     }),
   components:{
     CommonDocuments
