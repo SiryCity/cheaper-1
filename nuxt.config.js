@@ -51,6 +51,8 @@ module.exports = {
   modules: [
     '@nuxtjs/markdownit',
     '@nuxtjs/dotenv',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/pwa',
   ],
   markdownit: {
     injected: true,
