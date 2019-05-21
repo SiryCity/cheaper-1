@@ -7,12 +7,12 @@
       nuxt-link.header__nav(to='usage')
         img(src='~/assets/usage.svg')
         p 使い方
-      nuxt-link.header__nav(to='topics')
-        img(src='~/assets/topics.svg')
-        p トピック
       nuxt-link.header__nav(to='app')
         img(src='~/assets/app.svg')
         p アプリ
+      nuxt-link.header__nav(to='topics')
+        img(src='~/assets/topics.svg')
+        p トピック
       nuxt-link.header__nav(to='contact')
         img(src='~/assets/contact.svg')
         p 問い合せ

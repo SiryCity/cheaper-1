@@ -7,14 +7,14 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '薬局でよくある「どっちのシャンプーがお得？」を10秒で計算。' },
+      { hid: 'description', name: 'description', content: '薬局で一番安いシャンプー見つけよう' },
 
-      //{ hid: 'og:title', property: 'og:title', content: '' },
-      { hid: 'og:description', property: 'og:description', content: '薬局でよくある「どっちのシャンプーがお得？」を10秒で計算。' },
-      //{ hid: 'og:site_name', property: 'og:site_name', content: '' },
+      { hid: 'og:title', property: 'og:title', content: 'シャンプーくらべ' },
+      { hid: 'og:description', property: 'og:description', content: '薬局で一番安いシャンプー見つけよう' },
+      { hid: 'og:site_name', property: 'og:site_name', content: 'シャンプーくらべ' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
-      //{ hid: 'og:url', property: 'og:url', content: '' },
-      //{ hid: 'og:image', property: 'og:image', content: '/icon.png'},
+      { hid: 'og:url', property: 'og:url', content: 'https://cheaper-1.com' },
+      { hid: 'og:image', property: 'og:image', content: '/icon.png'},
 
 
       { name: "robots", content: "noindex" },
@@ -28,7 +28,7 @@ module.exports = {
   /*
   ** Customize the progress bar color
   */
-  loading: { color: '#3B8070' },
+  loading: { color: '#f442c8' },
   /*
   ** Build configuration
   */
@@ -61,6 +61,17 @@ module.exports = {
     FORMS_API: (process.env.NODE_ENV === 'development')
     ? process.env.FORMS_API
     : process.env.FORMS_API,
+  },
+  manifest: {
+    name: 'シャンプーくらべ',
+    lang: 'ja',
+    short_name: 'シャンプーくらべ',
+    title: 'シャンプーくらべ',
+    'og:title': 'シャンプーくらべ',
+    description: '薬局で一番安いシャンプー見つけよう',
+    'og:description': '薬局で一番安いシャンプー見つけよう',
+    theme_color: '#cccccc',
+    background_color: '#333333'
   },
 }
 
